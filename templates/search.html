@@ -2,8 +2,11 @@
 <html>
   
   <body>
-    
-      <h2 class="text-center mt-2 mb-4">Open Positions</h2>
+    <h3 class="mb-2">{{message}}</h3>
+    {% if job %}
+      {% include 'jobitem.html' %}
+    {% endif %}
+    <h2 class="text-center mt-2 mb-4">All Open Positions</h2>
       <div>
         {% for job in jobs %}
           {% include 'jobitem.html' %}
