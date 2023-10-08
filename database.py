@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text
 import os
 
-db_connection_string = "mysql+pymysql://nme7uy7drx9c3my0u0h2:pscale_pw_oEKX2tK0rEg2LxBRFLI2avAnlM9Tqs7A09FoeZfW62o@aws.connect.psdb.cloud/cloud?charset=utf8mb4"
+db_connection_string = "mysql+pymysql://m3xajd60w5m7g03d41xh:pscale_pw_15eeKIS2eomu8Ohvj52vJmAbLpONZiz8oFy5P2ErseN@aws.connect.psdb.cloud/cloud?charset=utf8mb4"
 
 engine = create_engine(db_connection_string,
                        connect_args={"ssl": {
@@ -48,5 +48,3 @@ def add_application_to_db(job_id, data):
                  education=data['education'],
                  work_experience=data['work_experience'],
                  resume_url=data['resume_url'])
-
-
