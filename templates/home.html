@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
   
-  <body>
-    
+  <body >
+    <div style=display: flex; flex-wrap: wrap>
+      
+    <div style="display: flex; justify-content: space-between;">
+        <div style="flex: 1; border: 1px solid #ccc; padding: 10px; margin: 10px;">
+            {% include 'create_form.html' %}
+        </div>
+        <div style="flex: 1; border: 1px solid #ccc; padding: 10px; margin: 10px;">
+            {% include 'update_form.html' %}
+        </div>
+        <div style="flex: 1; border: 1px solid #ccc; padding: 10px; margin: 10px;">
+            {% include 'search_form.html' %}
+        </div>
+        <div style="flex: 1; border: 1px solid #ccc; padding: 10px; margin: 10px;">
+            {% include 'delete_form.html' %}
+        </div>
+    </div>
       <h2 class="text-center mt-2 mb-4">Open Positions</h2>
       <div>
         {% for job in jobs %}
           {% include 'jobitem.html' %}
         {% endfor %}
       </div>
-    {% include 'create_form.html' %}
-    {% include 'update_form.html' %}
-    {% include 'search_form.html' %}
-    {% include 'delete_form.html' %}
+    </div>
+    
+      
   </body>
 </html>

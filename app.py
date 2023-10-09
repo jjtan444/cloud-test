@@ -110,7 +110,7 @@ def update_jobs():
   result=update_job_in_db(data)
 
   if result:
-    message = f"Job has been updated. Job Title:{data['title']},\n \
+    message = f"Job has been updated. Job Title: {data['title']},\n \
     Job location: {data['location']},\n \
     Salary: {data['currency']} {data['salary']}"
   else:
@@ -126,7 +126,7 @@ def delete():
   result=delete_job_in_db(data['id'])
   jobs = load_jobs_from_db()
   if result:
-    message = "Job has been deleted."
+    message = f"Job has been deleted. Job ID = {data['id']}."
   else:
     message = "Job not deleted."
   return redirect(url_for('mes_jovian', message=message))
