@@ -12,6 +12,7 @@ engine = create_engine(db_connection_string,
 def load_jobs_from_db():
   with engine.connect() as conn:
     result = conn.execute(text("select * from jobs"))
+    conn.execute("COMMIT")
 
     jobs = []
     for row in result.all():
@@ -27,6 +28,7 @@ def load_jobs_from_db():
 def load_job_from_db(id):
   with engine.connect() as conn:
     result = conn.execute(text("SELECT * FROM jobs WHERE (`id` = :id)"),{"id": id})
+    conn.execute("COMMIT")
 
     rows = result.all()
     if len(rows) == 0:
@@ -69,6 +71,7 @@ def add_job_to_db(data):
                     "salary": data['salary'],
                     "currency": data['currency']
                 })
+            conn.execute("COMMIT")
         print("Added" +str(data))
         return True  # Return True on successful execution
   except Exception as e:
@@ -91,6 +94,7 @@ def update_job_in_db(data):
               "currency": data['currency'],
               "id": data['id']
           })
+      conn.execute("COMMIT")
       return True  # Return True on successful execution
   except Exception as e:
     print(f"Error: {e}")
@@ -105,6 +109,7 @@ def delete_job_in_db(id):
   
       conn.execute(
           query, {"id": id})
+      conn.execute("COMMIT")
       return True  # Return True on successful execution
   except Exception as e:
     print(f"Error: {e}")
