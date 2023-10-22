@@ -69,6 +69,7 @@ def add_job_to_db(data):
                     "salary": data['salary'],
                     "currency": data['currency']
                 })
+        print("Added" +str(data))
         return True  # Return True on successful execution
   except Exception as e:
     print(f"Error: {e}")
