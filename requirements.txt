@@ -1,4 +1,4 @@
 Flask
 gunicorn
-sqlalchemy
+sqlalchemy==1.4.39
 pymysql
